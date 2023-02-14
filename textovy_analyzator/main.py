@@ -34,8 +34,10 @@ def choiseText():
     else:
        print(task_template.TEXTS[choise -1])
 
-def counter():
-    pass
+def counter(specificText):
+    #prestal fungovat vyber / vice nez 3
+    text = specificText.split()
+    print(len(text))
 
 if __name__ == '__main__':
     #(checkUser('users.db'))
