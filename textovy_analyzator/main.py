@@ -34,9 +34,15 @@ def main():
     else:
         choise_text = task_template.TEXTS[choise - 1]
         pocet_slov = choise_text.split()
-        pocet_slov_velke_pismo = choise_text.capitalize()
-        return f' pocet slov: {len(pocet_slov)} \n pocet slov zacinajici velkym pismem: {pocet_slov_velke_pismo}'
+        pocet_slov_velke_pismo = [i for i in pocet_slov if i.istitle()]
+        pocet_velka_pismena = [i for i in pocet_slov if i.isupper()]
+        pocet_mala_pismena = [i for i in pocet_slov if i.islower()]
+        pocet_cisel = [i for i in choise_text if i.isdigit()]
+        suma_cisel = [int(i) for i in pocet_cisel]
 
+        return f' pocet slov: {len(pocet_slov)} \n pocet slov zacinajici velkym pismem: {len(pocet_slov_velke_pismo)} ' \
+               f'\n pocet slov psanych velkym pismem: {len(pocet_velka_pismena)} \n pocet slov psanych malym pismem {len(pocet_mala_pismena)} ' \
+               f'\n pocet cisel (ne cifer) {len(pocet_cisel)}\n suma cisel (ne cifer) {sum(suma_cisel)}'
 
 
 if __name__ == '__main__':
